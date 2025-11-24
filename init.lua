@@ -73,7 +73,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	group = vim.api.nvim_create_augroup("bnewlon-highlight-yank", { clear = true }),
 	callback = function()
 		vim.hl.on_yank()
 	end,
@@ -119,7 +119,23 @@ local lsp = {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
+				map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+
+				map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+
+				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+
+				map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+
 				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+
+				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+				map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
+
+				map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
+
+				map("gt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
 			end,
 		})
 		vim.diagnostic.config({
