@@ -79,8 +79,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-local vue_language_server_path =
-	"/home/bradley/.local/share/mise/installs/node/25.2.1/lib/node_modules/@vue/language-server"
+local vue_language_server_path = "/home/bradley/.nvm/versions/node/v22.14.0/lib/node_modules/@vue/language-server"
+-- local vue_language_server_path =
+-- 	"/home/bradley/.local/share/mise/installs/node/25.2.1/lib/node_modules/@vue/language-server"
 local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
 local vue_plugin = {
 	name = "@vue/typescript-plugin",
